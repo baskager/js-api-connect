@@ -19,7 +19,7 @@ export default class Api {
             const urlParams = self.buildUrlParams(api, endpoint);
             const endpointUrl = api.baseUrl + endpoint.path + urlParams;
 
-            console.log('Fetching '+ endpoint.path +' from Rijksmuseum');
+            console.log('Fetching '+ endpoint.path +' from' + api.baseUrl);
 
             var request = new XMLHttpRequest();
             // Search the rijksmuseum collection with the supplied parameters
