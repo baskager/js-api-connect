@@ -11,12 +11,13 @@ const apiConfig = {
                 },
                 GET: {
                     path: '/collection',
+                    httpMethod: 'GET',
                     params: {
                         key: 'default',
                         format: 'json',
                         imgonly: true,
-                        // Search query for the collection
-                        q: ''
+                        type: 'painting',
+                        S: 'relevance'
                     }
                 }
             }
