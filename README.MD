@@ -30,7 +30,7 @@ Make a new API object
 
     const api = new Api(apiConfig);
 
-Get the endpoints and set a parameter (optional, default parameters are set in the config)
+Get the endpoints and set a parameter (optional, default parameters are set in the config). The request body can be manipulated in the same manner.
 
     const endpoints = api.getEndpointsForApi('rijksmuseum');
 
