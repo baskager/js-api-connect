@@ -39,9 +39,10 @@ export default class Api {
             console.log(endpointUrl);
 
             var request = new XMLHttpRequest();
-            // Search the rijksmuseum collection with the supplied parameters
-            request.open(endpoint.httpMethod, endpointUrl, true);
 
+            // Search the  collection with the supplied parameters
+            request.open(endpoint.httpMethod, endpointUrl, true);
+            self.setHeaders(request, endpoint);
             request.onload = function() {
                 // 200 = success
                 if (request.status === 200 ) {
@@ -62,12 +63,18 @@ export default class Api {
                 // There was a connection error of some sort
                 reject( new Error('Could not connect to Rijksmuseum API') );
             };
-
-            request.send();
+            request.send(JSON.stringify(endpoint.body));
         });
 
     }
-
+    // Sets the headers on the request that were specified in the endpoints
+    setHeaders(request, endpoint) {
+        for (let header of endpoint.headers) {
+            // setRequestHeader(key, value);
+            request.setRequestHeader(header[0], header[1])
+        }
+    }
+    // Returns a string with params to be added to the base URL
     buildUrlParams(api, endpoint) {
         let params = endpoint.params;
 

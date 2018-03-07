@@ -18,7 +18,13 @@ const apiConfig = {
                         imgonly: true,
                         type: 'painting',
                         S: 'relevance'
-                    }
+                    },
+                    body: {
+                        someKey: 'someValue'
+                    },
+                    headers: [
+                        ['Content-Type','application/json'],
+                    ]
                 }
             }
         }
