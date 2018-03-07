@@ -49,10 +49,10 @@ An optional third parameter can be sent to the request method, this has to be an
     let artist = new Artist(name);
 
     api.request('rijksmuseum', endpoints.collection.GET, artist).then(function(artistWithData) {
-        self.addArtist(artistWithData);
-        resolve(artistWithData);
+        // The supplied artist will be filled with painting objects
+        console.dir(artistWithData);
     }).catch(function(err){
-        reject(err);
+        console.log(err);
     });
 
 Where the artist class is (just an example):
